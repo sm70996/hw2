@@ -9,7 +9,6 @@ all: amazon
 
 amazon: $(OBJS)
 	$(CXX) $(CXXFLAGS) $(DEFS) -o $@ $(OBJS)
-
 amazon.o: amazon.cpp db_parser.h datastore.h product_parser.h 
 	$(CXX) $(CXXFLAGS) $(DEFS) -o $@ -c amazon.cpp
 user.o: user.cpp user.h 
@@ -28,9 +27,7 @@ clothing.o: clothing.cpp clothing.h
 	$(CXX) $(CXXFLAGS) $(DEFS) -o $@ -c clothing.cpp
 movie.o: movie.cpp movie.h 
 	$(CXX) $(CXXFLAGS) $(DEFS) -o $@ -c movie.cpp
-
-	
-
-
+mydatastore.o: mydatastore.cpp mydatastore.h 
+	$(CXX) $(CXXFLAGS) $(DEFS) -o $@ -c mydatastore.cpp
 clean:
 	rm -f *.o amazon
