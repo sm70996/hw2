@@ -44,7 +44,6 @@ private:
 		std::set<Product*> productList; //productDatabase
 		std::set<User*> userList; //userDatabase
     std::vector<Product*> searchProd; //searchVec
-
 		std::map<std::string, std::set<Product*>> keyMap; //myDataStoreMap
 		//map username to user 
 		std::map<std::string, User*> userMap; //myUserMap

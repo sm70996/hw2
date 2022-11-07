@@ -19,7 +19,7 @@ void MyDataStore::addProduct(Product* p){
 			prodSet.insert(p); 
 			keyMap.insert(std::make_pair(*it, prodSet)); 
 		}
-		else{
+		else if(s.find(*it) != s.end()){
 			keyMap[*it].insert(p); 
 		}
 	}
