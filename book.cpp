@@ -15,6 +15,7 @@ Book::~Book()
 
 }
 
+
 //Returns appropriate keyword to index the product 
 std::set<std::string> Book::keywords() const
 {
@@ -28,14 +29,17 @@ std::set<std::string> Book::keywords() const
 //Create string that contains prouct info 
 std::string Book::displayString() const
 {
-	std::string str = name_ + "\n" + "Author: " + author_ + " " + "ISBN: " + isbn_ + "\n" + std::to_string(price_) + " " + std::to_string(qty_) + " left." + "\n" + "Rating: "; 
-	return str; 
+	std::string display; 
+	std::ostringstream priceFormat; 
+	priceFormat << std::fixed << std::setprecision(2) << getPrice(); 
+	display = getName() + "\n" + "Author: " + getAuthor() + " " + "ISBN: " + getISBN() + "\n" + priceFormat.str() + " " + std::to_string(qty_) + " left." ; 
+	return display; 
 }
 
 //Outputs database format of the product info 
 void Book::dump(std::ostream& os) const
-{
-    os << category_ << "\n" << name_ << "\n" << price_ << "\n" << qty_ << "\n" << isbn_ << "\n" << author_ << std::endl;
+{ 
+  os << category_ << "\n" << name_ << "\n" << std::fixed << std::setprecision(2) << price_ << "\n" << qty_ << "\n" << isbn_ << "\n" << author_ << std::endl;
 }
 
 // Accessors and mutators 

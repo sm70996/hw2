@@ -28,14 +28,17 @@ std::set<std::string> Movie::keywords() const
 //Create string that contains prouct info 
 std::string Movie::displayString() const
 {
-	std::string str = name_ + "\n" + "Genre: " + genre_ + " " + "Rating: " + rating_ + "\n" + std::to_string(price_) + " " + std::to_string(qty_) + " left." + "\n" + "Rating: "; 
-	return str; 
+	std::string display; 
+	std::ostringstream priceFormat; 
+	priceFormat << std::fixed << std::setprecision(2) << getPrice(); 
+	display = getName() + "\n" + "Genre: " + getGenre() + " " + "Rating: " + getRating() + "\n" + priceFormat.str() + " " + std::to_string(qty_) + " left." ; 
+	return display; 
 }
 
 //Outputs database format of the product info 
 void Movie::dump(std::ostream& os) const
-{
-    os << category_ << "\n" << name_ << "\n" << price_ << "\n" << qty_ << "\n" << genre_ << "\n" << rating_ << std::endl;
+{ 
+	os << category_ << "\n" << name_ << "\n" << std::fixed << std::setprecision(2) << price_ << "\n" << qty_ << "\n" << genre_ << "\n" << rating_ << std::endl;
 }
 
 // Accessors and mutators 

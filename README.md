@@ -7,4 +7,3 @@ Email: sm70996@usc.edu
 Compile: make 
 
 
-Forgot to commit the changes in amazon.cpp
