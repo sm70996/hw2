@@ -13,7 +13,10 @@
 
 class MyDataStore: public DataStore{
 public:
-    /**
+  
+    MyDataStore(); 
+		
+		/**
      * Adds a product to the data store
      */
     void addProduct(Product* p);
@@ -36,19 +39,19 @@ public:
     void dump(std::ostream& ofile);
 
 		//functionality of amazon 
-		void addCart(std::string username, int hitIndex); 
+		void addCart(std::string username, std::string search_hit, std::vector<Product*> hits); 
 		void buyCart(std::string username); 
 		void viewCart(std::string username); 
 
 private:
 		std::set<Product*> productList; //productDatabase
 		std::set<User*> userList; //userDatabase
-    std::vector<Product*> searchProd; //searchVec
-		std::map<std::string, std::set<Product*>> keyMap; //myDataStoreMap
+    std::vector<Product*> searchProd;   //products 
+		std::map<std::string, std::set<Product*>> keyMap; //productMap
 		//map username to user 
-		std::map<std::string, User*> userMap; //myUserMap
+		std::map<std::string, User*> userMap; 
     //map username to products 
-    std::map<std::string, std::vector<Product*>> userCart; //usersCartMap
+    std::map<User*, std::vector<Product*>> userCart; //usersCartMap
 
 };
 
