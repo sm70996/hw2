@@ -45,7 +45,7 @@ std::vector<Product*> MyDataStore::search(std::vector<std::string>& terms, int t
 			if(search.empty()){
 				search = temp; 
 			}
-			else if(!search.empty){
+			else if(!search.empty()){
 				if(type == 0){
 					search = setIntersection(temp, search); 
 				}
@@ -70,10 +70,10 @@ void MyDataStore::dump(std::ostream& ofile){
 	ofile << "</products>" << std::endl; 
 	//output users 
 	ofile << "<users>" << std::endl; 
-	for(std::set<User*>::iterator userDumpIt = userList.begin(); it != userList.end(); ++userDumpIt){
+	for(std::set<User*>::iterator userDumpIt = userList.begin(); userDumpIt != userList.end(); ++userDumpIt){
 		(*userDumpIt)->dump(ofile); 
 	}
-	ofile << "</users>"
+	ofile << "</users>";  
 } //done 
 
 void MyDataStore::buyCart(std::string username){
@@ -96,7 +96,7 @@ void MyDataStore::buyCart(std::string username){
 					std::cout << "Item no longer in stock." << std::endl; 
 				}
 				if(price > balance){
-					std::cout << "Insufficient funds." std::endl; 
+					std::cout << "Insufficient funds." << std::endl; 
 				}
 			}
 		}
